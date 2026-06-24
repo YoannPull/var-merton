@@ -36,8 +36,10 @@ code/shared/replot_var_irf_gpr_first.R
 data/raw/data_risk_EBA.csv
 data/raw/default/CORALACBN.csv
 
-# Exploratory notes on alternative default proxies (not part of the article).
-docs/default_proxies.md
+# Working notes, paper LaTeX drafts and scratch images (not part of the
+# replication package; the paper source lives in its own repository).
+docs/
+img/
 
 # Generated outputs (reproducible from run_all.R). Ignore the heavy
 # intermediates but keep the paper deliverables.

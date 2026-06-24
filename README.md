@@ -17,7 +17,8 @@ application studies U.S. geopolitical-risk (GPR) shocks.
 - No internet access is required at run time: all input data are frozen in
   `data/raw/` (see *Data* below).
 - A multi-core machine is recommended; posterior computations use up to 60%
-  of the available logical cores (option `robustness.core_fraction`).
+  of the available logical cores (option `robustness.core_fraction`). The
+  reported results were produced on an Apple M4 Max (128 GB RAM).
 
 ## How to run
 

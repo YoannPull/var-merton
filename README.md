@@ -2,7 +2,7 @@
 
 Replication code and data for the paper:
 
-> **A Modular Framework for Credit-Portfolio Stress Testing: An Application to
+> **Stress Testing Credit Portofolios Under 
 > Geopolitical Risk** — G. Flament, C. Hurlin, Q. Lajaunie, Y. Pull.
 
 The framework propagates an identified macro-financial innovation through a

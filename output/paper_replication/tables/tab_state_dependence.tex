@@ -1,0 +1,20 @@
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\caption{\textbf{Geopolitical episodes evaluated at their own initial conditions.}}
+\label{tab:state_dependence}
+\begin{tabular}{lccccc}
+\toprule
+Episode & \makecell{PD at shock\\date (pp)} & \makecell{Shock\\(s.d.)} & \makecell{Peak $\Delta$PD,\\own shock (pp)} & \makecell{Peak $\Delta$PD,\\1 s.d. (pp)} & Ratio \\
+\midrule
+Gulf War (1990:Q3) & 4.59 & 3.14 & \makecell{$0.278$\\{\scriptsize $[0.099,\,0.477]$}} & 0.087 & 2.59 \\
+September 11 (2001:Q3) & 1.97 & 4.45 & \makecell{$0.219$\\{\scriptsize $[0.077,\,0.376]$}} & 0.047 & 1.41 \\
+Ukraine invasion (2022:Q1) & 1.36 & 3.54 & \makecell{$0.106$\\{\scriptsize $[0.059,\,0.162]$}} & 0.029 & 0.87 \\
+End of sample (2025:Q1) & 1.45 & -- & -- & 0.033 & 1.00 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item Notes: Generalized responses of the portfolio PD evaluated conditional on the history preceding each episode, on identical posterior draws. ``PD at shock date'' is the posterior median of the model-implied baseline PD at $h=0$. ``Own shock'' replays the episode's standardized reduced-form GPR innovation; brackets report 68\% credible intervals. ``1 s.d.'' applies a common one-standard-deviation innovation. ``Ratio'' is the corresponding peak relative to the end-of-sample state. Parameters are full-sample estimates.
+\end{tablenotes}
+\end{table}

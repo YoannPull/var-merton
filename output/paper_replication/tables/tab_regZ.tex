@@ -1,0 +1,29 @@
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\caption{\textbf{Model-averaged satellite for the systematic factor $Z$.}}
+\label{tab:regZ}
+\begin{tabular}{lcccc}
+\toprule
+Variable & Coef. & Post. SD & 90\% CI & Incl. prob. \\
+\midrule
+Intercept & $12.8266$^{***}$$ & 0.6357 & $[11.7989,\ 13.8680]$ & 1.00 \\
+Investment (p.c., log) (lag 0) & $0.0387$^{***}$$ & 0.0104 & $[0.0231,\ 0.0576]$ & 1.00 \\
+Investment (p.c., log) (lag 2) & $0.0164$ & 0.0139 & $[0.0000,\ 0.0371]$ & 0.64 \\
+Real Oil Price (log) (lag 4) & $-0.0036$^{***}$$ & 0.0030 & $[-0.0078,\ 0.0000]$ & 0.63 \\
+Inflation YoY (%) (lag 4) & $0.0586$ & 0.0591 & $[0.0000,\ 0.1424]$ & 0.52 \\
+Real Oil Price (log) (lag 0) & $-0.0014$^{***}$$ & 0.0019 & $[-0.0049,\ 0.0000]$ & 0.39 \\
+Real Oil Price (log) (lag 1) & $-0.0016$^{***}$$ & 0.0026 & $[-0.0079,\ 0.0000]$ & 0.33 \\
+Real GDP (p.c., log) (lag 4) & $-0.0153$^{***}$$ & 0.0230 & $[-0.0571,\ 0.0000]$ & 0.32 \\
+Real GDP (p.c., log) (lag 0) & $-0.0165$^{***}$$ & 0.0264 & $[-0.0649,\ 0.0000]$ & 0.30 \\
+\midrule
+Observations & \multicolumn{4}{r}{152} \\
+$R^2$ / adj. $R^2$ & \multicolumn{4}{r}{0.89 / 0.88} \\
+Out-of-sample $R^2$ & \multicolumn{4}{r}{0.85} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item Notes: Posterior mean, standard deviation, and 90\% credible interval of each satellite coefficient under Schwarz (BIC) model averaging. The inclusion probability is the cumulative weight of the retained models that contain the term. Stars $^{*}$/$^{**}$/$^{***}$ denote a posterior probability of the coefficient sign exceeding $0.95$/$0.975$/$0.99$.
+\end{tablenotes}
+\end{table}

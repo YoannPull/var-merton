@@ -1,0 +1,20 @@
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\caption{\textbf{Posterior stability diagnostics for the BVAR information sets.}}
+\label{tab:var_stability_info_sets}
+\begin{tabular}{lccccccc}
+\toprule
+Spec & $k$ & $p$ & Draws & Stable share & Stable draws & $|\lambda|_{\max}$ median & $|\lambda|_{\max}$ p95 \\
+\midrule
+Real-side & 6 & 2 & 30,000 & 0.5868 & 17,605 & 0.9961 & 0.9996 \\
+Real-side (lighter) & 4 & 2 & 30,000 & 0.6379 & 19,137 & 0.9910 & 0.9991 \\
+Monetary & 5 & 2 & 30,000 & 0.8147 & 24,442 & 0.9944 & 0.9992 \\
+Uncertainty & 5 & 2 & 30,000 & 0.5196 & 15,588 & 0.9952 & 0.9995 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item Notes: $k$ is the number of variables in the VAR, including the GPR index, and $p$ is the lag order. Stable share is the fraction of posterior draws whose companion-matrix spectral radius is strictly below one. The last two columns report the posterior median and 95th percentile of the largest-modulus eigenvalue over stable draws.
+\end{tablenotes}
+\end{table}

@@ -1,0 +1,22 @@
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\caption{\textbf{The cost of perfect foresight: PD levels and responses.}}
+\label{tab:pf_bias}
+\begin{tabular}{llccccc}
+\toprule
+ & & Exact & PF & Plug-in & Bias PF (\%) & Bias plug-in (\%) \\
+\midrule
+PD level (pp) & $h=4$ & 1.427 & 1.397 & 1.371 & $-2.1$ & $-3.9$ \\
+PD level (pp) & $h=8$ & 1.458 & 1.390 & 1.366 & $-4.7$ & $-6.3$ \\
+PD level (pp) & $h=12$ & 1.503 & 1.401 & 1.377 & $-6.7$ & $-8.4$ \\
+\midrule
+Peak $\Delta$PD (pp), one s.d. & $h=3$ & 0.033 & 0.033 & 0.033 & $-0.1$ & $-1.2$ \\
+Peak $\Delta$PD (pp), 2001:Q3 & $h=3$ & 0.155 & 0.154 & 0.152 & $-0.8$ & $-2.0$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item Notes: Posterior medians are computed on identical posterior draws. The variants differ only in the predictive variance entering the closed forms. ``Exact'' is the full closed form; ``PF'' treats the macro-financial path as known but retains the satellite-error variance; ``Plug-in'' evaluates the Merton--Vasicek map at the conditional-mean path. Biases are relative to the exact variant.
+\end{tablenotes}
+\end{table}

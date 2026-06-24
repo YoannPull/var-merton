@@ -1,0 +1,20 @@
+\begin{table}[!htbp]
+\centering
+\caption{Portfolio PD responses with and without the direct geopolitical channel}
+\label{tab:direct_channel_pd}
+\begin{tabular}{llcc}
+\toprule
+Shock & Model & Impact $\Delta$PD ($h=0$) & Peak $\Delta$PD \\
+\midrule
+One s.d. & Restricted & 0.011 [0.004, 0.020] & 0.035 (h=3) [0.015, 0.057] \\
+One s.d. & Augmented & 0.023 [-0.002, 0.049] & 0.035 (h=3) [0.015, 0.058] \\
+\midrule
+2001Q3 & Restricted & 0.051 [0.018, 0.090] & 0.163 (h=3) [0.066, 0.275] \\
+2001Q3 & Augmented & 0.105 [-0.008, 0.233] & 0.163 (h=3) [0.068, 0.275] \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Notes: Posterior medians in percentage points, with 68\% credible intervals in brackets. The direct channel only affects the impact response: with serially independent satellite errors, the $\lambda$ correction to the PD generalized impulse response applies at $h = 0$, leaving the propagation profile unchanged from $h \geq 1$.
+\end{tablenotes}
+\end{table}

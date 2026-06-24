@@ -1,0 +1,20 @@
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\caption{\textbf{DRALACBN credit-risk responses across VAR information sets.}}
+\label{tab:dralacbn_information_set_robustness}
+\begin{tabular}{lcccc}
+\toprule
+Information set & $k$ & Sat. $R^2$ & OOS RMSE & Peak $\Delta$PD, one s.d. (pp) \\
+\midrule
+Real-side & 6 & 0.889 & 0.4203 & $0.033$ $(h=3)$ \\
+Real-side (lighter) & 4 & 0.865 & 0.4742 & $0.021$ $(h=1)$ \\
+Monetary & 5 & 0.633 & 0.8759 & $0.030$ $(h=1)$ \\
+Uncertainty & 5 & 0.769 & 0.6862 & $0.013$ $(h=1)$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item Notes: The Merton--Vasicek systematic factor $Z$, asset correlation $\rho$, and TTC PD are fixed within the application; only the VAR transmission mechanism and the selected satellite bridge change. Peak $\Delta$PD is the largest posterior-median PD response to a one-standard-deviation innovation in the GPR equation, in percentage points, with the corresponding horizon in parentheses.
+\end{tablenotes}
+\end{table}

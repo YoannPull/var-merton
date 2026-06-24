@@ -1,0 +1,29 @@
+\begin{table}[!htbp]
+\centering
+\caption{DRALACBN: selected satellite under the Real-side (lighter) information set}
+\label{tab:dralacbn_real_side_lighter_satellite}
+\begin{tabular}{lrr}
+\toprule
+Variable & Estimate & Std. Error \\
+\midrule
+(Intercept) & 14.817015$^{***}$ & 0.517778 \\
+log_inv_pc_lag0 & 0.019459$^{**}$ & 0.009288 \\
+log_inv_pc_lag1 & 0.018329$^{*}$ & 0.009310 \\
+log_oil_real_lag1 & -0.007100$^{***}$ & 0.001593 \\
+log_oil_real_lag4 & -0.005828$^{***}$ & 0.001599 \\
+infl_yoy_pct_lag1 & 0.072596$^{**}$ & 0.030762 \\
+infl_yoy_pct_lag4 & 0.075133$^{**}$ & 0.029512 \\
+\midrule
+Observations & \multicolumn{2}{r}{152} \\
+Residual std. error & \multicolumn{2}{r}{0.3735} \\
+$R^2$ / adj. $R^2$ & \multicolumn{2}{r}{0.8654 / 0.8599} \\
+AIC & \multicolumn{2}{r}{140.788} \\
+Information set & \multicolumn{2}{r}{Real-side (lighter)} \\
+Selection & \multicolumn{2}{r}{Akaike model averaging (569 models)} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item The dependent variable is the reconstructed systematic factor Z. Bayesian posterior draws are generated conditionally on this selected linear satellite.
+\end{tablenotes}
+\end{table}

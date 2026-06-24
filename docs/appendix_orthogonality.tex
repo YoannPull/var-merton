@@ -1,0 +1,234 @@
+% =============================================================================
+%  appendix_orthogonality.tex
+%  Notation aligned with Section "General framework" (sec:framework):
+%  Y_t^{(s)}, S_\ell^{(s)}, S_0^{(s)}, Sigma_u, sigma_gg, e_g, u_{gt}, delta_g,
+%  B(h,q), mu_{t+h}, s_{t+h}^2, psi_Z^g, Propositions prop:Moments-Z /
+%  prop:GIRF-PD. Tables embedded inline (no \input).
+% =============================================================================
+
+\subsection{Relaxing the satellite orthogonality restriction}
+\label{app:orthogonality}
+
+\paragraph{The maintained restriction.}
+The satellite equation \eqref{eq:Z} assumes that the satellite error $\eta_t$ is
+independent of the VAR innovation sequence $\{u_s\}$. This exclusion restriction
+enters the closed forms of Section~\ref{sec:irf_transmission} only through the
+conditional variance of the systematic factor. In
+Proposition~\ref{prop:Moments-Z}, the baseline conditional variance is
+\begin{equation}
+    s_{t+h}^2
+    =
+    \sum_{q=0}^{h} B(h,q)\,\Sigma_u\, B(h,q)^\top
+    +
+    \sigma_\eta^2 ,
+    \label{eq:app_s2_baseline}
+\end{equation}
+with $B(h,q)=\beta^\top G_{h,q}$ as in \eqref{eq:G-hq}. Equation
+\eqref{eq:app_s2_baseline} contains \emph{no} covariance between the
+macro-financial component $\beta^\top Y_{t+h}^{(s)}$ and the satellite error
+$\eta_{t+h}$: that term is zero precisely because of the orthogonality
+restriction. Because $Y_{t+h}^{(s)}$ loads on the entire innovation vector
+through the moving-average representation, what the restriction rules out is the
+correlation of $\eta$ with the \emph{full} vector $u_t$, not only with the
+geopolitical innovation $u_{gt}$.
+
+\paragraph{A control-function relaxation.}
+We nest the restriction in a one-parameter family. Let
+$e_t^{g}=u_{gt}/\sqrt{\sigma_{gg}}$ denote the standardized reduced-form
+innovation of the variable of interest, with $\sigma_{gg}=e_g^\top\Sigma_u e_g$,
+and project the satellite error on it,
+\begin{equation}
+    \eta_t
+    =
+    \lambda\, e_t^{g} + \xi_t,
+    \qquad
+    \xi_t\sim\mathcal N(0,\sigma_\xi^2),
+    \qquad
+    \xi_t \perp \{u_s\}_{s\in\mathbb Z},
+    \label{eq:app_control}
+\end{equation}
+so that the baseline of Section~\ref{sec:macro_credit_architecture} is the
+restriction $\lambda=0$. Since $e_t^{g}\perp\xi_t$, the satellite-error variance
+decomposes as
+\begin{equation}
+    \sigma_\eta^2 = \lambda^2 + \sigma_\xi^2 .
+    \label{eq:app_var_decomp}
+\end{equation}
+The coefficient $\lambda$ measures a direct channel from the variable of
+interest to credit risk, over and above the macro-financial block
+$Y_t^{(s)}$. With the contemporaneous normalization $\Psi_0=I_n$, such a direct
+channel is identified only for innovations of variables \emph{excluded} from the
+contemporaneous satellite regressors, because the levels of the included
+variables already span their own contemporaneous innovations. By construction
+the variable of interest never enters $Y_t^{(s)}$ (the $g$-th column of each
+$S_\ell^{(s)}$ is zero), so $\lambda$ is identified; the analogous coefficients
+on the included variables are not, which is why \eqref{eq:app_control} retains
+only the channel of the variable of interest.
+
+\paragraph{Generalized closed form: the same formulas plus one interaction term.}
+Under \eqref{eq:app_control} the systematic factor keeps the affine-Gaussian
+form of Appendix~\ref{app:proof_Moments}; the only new object is the
+contemporaneous covariance between the satellite error and the macro-financial
+component,
+\begin{equation}
+    \Cov\!\big(\beta^\top Y_{t+h}^{(s)},\,\eta_{t+h}\big)
+    =
+    \lambda\, c_0,
+    \qquad
+    c_0
+    =
+    \frac{\beta^\top S_0^{(s)}\,\Sigma_u\, e_g}{\sqrt{\sigma_{gg}}},
+    \label{eq:app_c0}
+\end{equation}
+which the restriction had set to zero. The closed forms of
+Propositions~\ref{prop:Moments-Z} and~\ref{prop:GIRF-PD} therefore carry over
+\emph{unchanged} except for this interaction term. The conditional means satisfy
+\begin{equation}
+    \mu_{t+h}^{(\delta_g),\lambda}
+    =
+    \mu_{t+h}^{(\delta_g)}
+    +
+    \lambda\,\frac{\delta_g}{\sqrt{\sigma_{gg}}}\,\mathbf 1\{h=0\},
+    \qquad
+    \psi_Z^{g,\lambda}(h)
+    =
+    \psi_Z^{g}(h)
+    +
+    \lambda\,\frac{\delta_g}{\sqrt{\sigma_{gg}}}\,\mathbf 1\{h=0\},
+    \label{eq:app_mean}
+\end{equation}
+and the conditional variances are the variances of
+Proposition~\ref{prop:Moments-Z} plus the interaction term,
+\begin{equation}
+    s_{t+h}^{2,\lambda}
+    =
+    s_{t+h}^2
+    +
+    2\lambda c_0,
+    \qquad
+    \big(s_{t+h}^{(\delta_g),\lambda}\big)^2
+    =
+    \big(s_{t+h}^{(\delta_g)}\big)^2
+    +
+    2\lambda c_0\,\mathbf 1\{h\ge1\}.
+    \label{eq:app_var}
+\end{equation}
+The baseline variance $s_{t+h}^2$ in \eqref{eq:app_var} is the one of
+\eqref{eq:app_s2_baseline}, built with $\sigma_\eta^2$; the variance
+$\lambda^2$ contributed by the direct channel is already inside $\sigma_\eta^2$
+through the decomposition \eqref{eq:app_var_decomp}, so relaxing the restriction
+adds only the covariance term $2\lambda c_0$, and nothing else.\footnote{Writing
+the variance in terms of the augmented residual variance $\sigma_\xi^2$ instead
+of $\sigma_\eta^2$ moves the $\lambda^2$ back into the additive correction,
+$s_{t+h}^{2,\lambda}=\big[\sum_q B(h,q)\Sigma_u B(h,q)^\top+\sigma_\xi^2\big]
++\lambda^2+2\lambda c_0$; the two expressions coincide by
+\eqref{eq:app_var_decomp}.} The mean correction \eqref{eq:app_mean} affects only
+the impact response: the innovation $e_{t+h}^{g}$ is serially independent, so for
+$h\ge1$ the direct channel contributes nothing in expectation and the
+propagation profile is unchanged; for the shocked variance it applies at
+$h\ge1$, the impact innovation being fixed by the conditioning event
+$u_{gt}=\delta_g$. The default-probability response is then given by
+Proposition~\ref{prop:GIRF-PD} evaluated at
+$\big(\mu_{t+h}^{(\delta_g),\lambda},s_{t+h}^{2,\lambda}\big)$, and setting
+$\lambda=0$ recovers the baseline exactly. The baseline is thus a tested special
+case rather than a maintained hypothesis.
+
+\paragraph{Taking it to the data.}
+We estimate \eqref{eq:app_control} hierarchically: for each retained VAR
+posterior draw we recompute the innovation series, augment the best
+specification with $e_t^{g}$, and draw the satellite posterior by conjugate
+Bayesian regression, so that generated-regressor uncertainty is propagated.
+Table~\ref{tab:direct_channel_satellite} reports the result. The direct channel
+is economically and statistically negligible ($\widehat\lambda=-0.014$, $90\%$
+credible interval $[-0.063,\,0.034]$; a posterior-median HAC diagnostic gives
+$t=-0.58$, $p=0.56$), and the satellite coefficients are unchanged from the
+restricted specification. Because $\lambda$ identifies only the channel of the
+variable of interest, we complement it with a joint diagnostic that does not
+require structural identification: we regress the restricted satellite residual
+on the \emph{entire} reduced-form innovation vector and test joint nullity. The
+restriction is not rejected ($F=0.24$ on $(6,145)$ degrees of freedom,
+$p=0.96$; $R^2<0.01$). Its power is concentrated on the innovations excluded
+from the satellite---the geopolitical one foremost---since the residual is
+orthogonal by construction to the regressors that span the included
+innovations. Consistent with \eqref{eq:app_mean}--\eqref{eq:app_var},
+recomputing the responses leaves the peak and the $h\ge1$ profile of the
+portfolio-PD response unchanged; only the impact ($h=0$) response shifts, by the
+statistically insignificant $\lambda$ channel
+(Table~\ref{tab:direct_channel_pd}). We therefore adopt the baseline
+$\lambda=0$ closed form in the main text.
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\caption{\textbf{Relaxing the satellite exogeneity assumption: control-function estimates.}}
+\label{tab:direct_channel_satellite}
+\begin{tabular}{lcc}
+\toprule
+ & Restricted ($\lambda = 0$) & Augmented \\
+\midrule
+Intercept & 12.8310 (0.5941) & 12.8411 (0.5960) \\
+log(Investment p.c.)$_{t}$ & 0.0354 (0.0061) & 0.0353 (0.0062) \\
+log(Investment p.c.)$_{t-2}$ & 0.0279 (0.0068) & 0.0280 (0.0069) \\
+log(GDP p.c.)$_{t-2}$ & -0.0527 (0.0089) & -0.0527 (0.0091) \\
+log(Oil real)$_{t}$ & -0.0033 (0.0011) & -0.0033 (0.0011) \\
+log(Oil real)$_{t-4}$ & -0.0062 (0.0011) & -0.0061 (0.0011) \\
+Inflation YoY$_{t-4}$ & 0.1103 (0.0196) & 0.1106 (0.0197) \\
+$e^{g}_{t}$ (direct channel, $\lambda$) & -- & -0.0141 (0.0295) \\
+\midrule
+90\% CI for $\lambda$ & -- & $[-0.063,\ 0.034]$ \\
+$\Pr(\lambda < 0 \mid \text{data})$ & -- & 0.68 \\
+HAC $t$-statistic ($p$-value) & -- & -0.58 (0.56) \\
+Joint orthogonality $F$-test ($p$-value) & -- & 0.24 (0.96) \\
+Generated-regressor share of $\Var(\lambda)$ & -- & 3.9\% \\
+Observations & 152 & 152 \\
+Posterior draws & 10{,}000 & 10{,}000 \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\begin{minipage}{0.92\textwidth}
+\footnotesize
+\textbf{Note:} Posterior means with posterior standard deviations in
+parentheses. The augmented satellite adds the standardized reduced-form
+innovation $e^{g}_t=u_{gt}/\sqrt{\sigma_{gg}}$ of the variable of interest to
+the best-BIC specification, relaxing the exclusion restriction $\eta_t\perp u_t$
+($\lambda=0$ in the baseline). Estimation is hierarchical: the innovation series
+and the conjugate satellite posterior are recomputed for each retained BVAR
+posterior draw, so generated-regressor uncertainty is fully propagated; its
+share of the posterior variance of $\lambda$ is reported above. The HAC
+diagnostic fixes the innovation at its posterior-median series and uses
+Newey--West standard errors. The joint orthogonality $F$-test regresses the
+restricted ($\lambda=0$) satellite residual on the full vector of reduced-form
+VAR innovations (at posterior-median coefficients) and tests their joint
+nullity, i.e.\ $\eta_t\perp u_t$ for the entire innovation vector, not only the
+geopolitical component.
+\end{minipage}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\caption{\textbf{Portfolio PD responses with and without the direct channel.}}
+\label{tab:direct_channel_pd}
+\begin{tabular}{llcc}
+\toprule
+Shock & Model & Impact $\Delta$PD ($h=0$) & Peak $\Delta$PD \\
+\midrule
+One s.d. & Restricted & 0.011 $[0.004, 0.020]$ & 0.035 $(h=3)$ $[0.015, 0.057]$ \\
+One s.d. & Augmented & 0.023 $[-0.002, 0.049]$ & 0.035 $(h=3)$ $[0.015, 0.058]$ \\
+\midrule
+2001Q3 & Restricted & 0.051 $[0.018, 0.090]$ & 0.163 $(h=3)$ $[0.066, 0.275]$ \\
+2001Q3 & Augmented & 0.105 $[-0.008, 0.233]$ & 0.163 $(h=3)$ $[0.068, 0.275]$ \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\begin{minipage}{0.92\textwidth}
+\footnotesize
+\textbf{Note:} Posterior medians in percentage points, with $68\%$ credible
+intervals in brackets. Consistent with \eqref{eq:app_mean}--\eqref{eq:app_var},
+the direct channel affects only the impact response: with serially independent
+satellite errors, the $\lambda$ correction to the PD generalized impulse
+response applies at $h=0$ and leaves the propagation profile unchanged from
+$h\ge1$. The impact shift is not statistically distinguishable from zero (the
+augmented impact interval contains the restricted median).
+\end{minipage}
+\end{table}

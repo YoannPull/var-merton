@@ -10,7 +10,6 @@
 #
 #  Series:
 #     gpr/      graph_gpr (with events), graph_e1 (with events)
-#     eba/      graph_eba (EBA corporate default rate)
 #     dralacbn/ graph_dralacbn (delinquency, NBER bands)
 #     results/  graph_var_irf, graph_z, graph_pd (one-s.d. shock)
 #               graph_z_scenario, graph_pd_scenario (2001Q3 shock)
@@ -178,23 +177,6 @@ if (file.exists(e1_path)) {
     scale_x_date(date_breaks = "5 years", date_labels = "%Y") + theme_paper()
   save_fig(add_events(p_e1, e[, .(date, e1)], "e1", 123), "gpr", "graph_e1")
 } else cat("  skip graph_e1: run run_all.R first.\n")
-
-eba_path <- if (exists("PATH_RAW_RISK_EBA")) PATH_RAW_RISK_EBA else "data/raw/data_risk_EBA.csv"
-if (file.exists(eba_path)) {
-  r <- fread(eba_path, sep = ";")
-  r <- r[Country == "United States"]
-  r <- data.table(date = as.Date(r$Date, format = "%d/%m/%Y"),
-                  rate = as.numeric(r$Corpo_DR_WA) * 100)
-  r <- r[is.finite(rate)]; setorder(r, date); ttc <- mean(r$rate, na.rm = TRUE)
-  p_eba <- ggplot(r, aes(date, rate)) +
-    geom_hline(yintercept = ttc, color = "grey55", linetype = "dashed", linewidth = 0.4) +
-    geom_line(color = BURGUNDY, linewidth = 0.8) +
-    annotate("text", x = max(r$date), y = ttc, label = sprintf("TTC = %.2f%%", ttc),
-             hjust = 1.0, vjust = -0.6, size = 3.4, color = "grey35") +
-    labs(x = NULL, y = "Corporate default rate (%)") +
-    scale_x_date(date_breaks = "2 years", date_labels = "%Y") + theme_paper()
-  save_fig(p_eba, "eba", "graph_eba")
-} else cat("  skip graph_eba: ", eba_path, " not found.\n", sep = "")
 
 del_path <- file.path(if (exists("DIR_RAW")) DIR_RAW else "data/raw", "default", "DRALACBN.csv")
 if (file.exists(del_path)) {

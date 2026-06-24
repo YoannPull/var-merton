@@ -1,0 +1,22 @@
+\begin{table}[!htbp]
+\centering
+\caption{DRALACBN credit-risk responses across VAR information sets}
+\label{tab:dralacbn_information_set_robustness}
+\begin{tabular}{lrrrrr}
+\toprule
+Information set & $k$ & Sat. $R^2$ & OOS RMSE & Peak $\Delta$PD (1 s.d.) & Peak $\Delta$PD (2001Q3) \\
+\midrule
+Real-side & 6 & 0.889 & 0.4203 & 3.341e-04 (h=3) & 1.552e-03 (h=3) \\
+Real-side (lighter) & 4 & 0.865 & 0.4742 & 2.105e-04 (h=1) & 9.584e-04 (h=1) \\
+Financial & 5 & 0.847 & 0.4473 & 4.868e-05 (h=1) & 1.929e-04 (h=1) \\
+Monetary & 5 & 0.633 & 0.8759 & 3.050e-04 (h=1) & 1.188e-03 (h=1) \\
+Uncertainty & 5 & 0.769 & 0.6862 & 1.271e-04 (h=1) & 4.933e-04 (h=1) \\
+Caldara-style & 8 & 0.932 & 0.3295 & 1.779e-04 (h=5) & 7.033e-04 (h=5) \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Notes: The Merton--Vasicek $Z$, asset correlation $\rho$ and TTC PD are fixed within the application. Across information sets, only VAR transmission and the selected satellite bridge change. Peak $\Delta$PD is the largest-magnitude posterior-median PD response and its horizon.
+\item For DRALACBN, Z is reconstructed from the FRED delinquency proxy and kept in its original Merton--Vasicek scale.
+\end{tablenotes}
+\end{table}

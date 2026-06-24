@@ -1,0 +1,22 @@
+\begin{table}[!htbp]
+\centering
+\caption{DRALACBN: selected satellite, HAC (Newey-West) standard errors (Financial information set)}
+\label{tab:dralacbn_financial_satellite_hac}
+\begin{tabular}{lrr}
+\toprule
+Variable & Estimate & Std. Error \\
+\midrule
+(Intercept) & -3.805475$^{**}$ & 1.141223 \\
+vix_lag2 & -0.015486 & 0.009373 \\
+vix_lag4 & 0.017618 & 0.027891 \\
+log_sp500_real_lag4 & 0.016379$^{*}$ & 0.007885 \\
+nfci_lag0 & -0.352514 & 0.195029 \\
+nfci_lag4 & -0.685918 & 0.570153 \\
+gs2_lag0 & 0.164479 & 0.150256 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Notes: OLS point estimates of the single best (AIC-selected) satellite with heteroskedasticity- and autocorrelation-consistent (Newey-West, 4 lags, prewhitened) standard errors. Significance: $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
+\end{tablenotes}
+\end{table}

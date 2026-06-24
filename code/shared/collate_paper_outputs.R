@@ -50,8 +50,7 @@ for (d in c(DIR_PAPER, paper_fig, paper_tab, paper_data)) {
 }
 
 # Applications and their directory conventions (mirrors the shared engine).
-# Only the DRALACBN application feeds the current paper; the EBA application has
-# been moved to code/extra/ (run via run_extra.R) and is no longer collated.
+# The DRALACBN application is the one collated for the paper.
 apps <- list(
   list(
     name = "dralacbn", label = "DRALACBN",

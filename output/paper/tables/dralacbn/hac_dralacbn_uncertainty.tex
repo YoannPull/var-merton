@@ -1,0 +1,22 @@
+\begin{table}[!htbp]
+\centering
+\caption{DRALACBN: selected satellite, HAC (Newey-West) standard errors (Uncertainty information set)}
+\label{tab:dralacbn_uncertainty_satellite_hac}
+\begin{tabular}{lrr}
+\toprule
+Variable & Estimate & Std. Error \\
+\midrule
+(Intercept) & -17.196317 & 9.204095 \\
+vix_lag3 & -0.051631$^{***}$ & 0.012370 \\
+log_gdp_pc_lag0 & 0.090842 & 0.064065 \\
+log_gdp_pc_lag4 & -0.140494$^{**}$ & 0.048097 \\
+log_sp500_real_lag0 & 0.013881$^{*}$ & 0.005560 \\
+log_sp500_real_lag3 & -0.041908$^{***}$ & 0.011627 \\
+log_sp500_real_lag4 & 0.054619$^{***}$ & 0.012799 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Notes: OLS point estimates of the single best (AIC-selected) satellite with heteroskedasticity- and autocorrelation-consistent (Newey-West, 4 lags, prewhitened) standard errors. Significance: $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
+\end{tablenotes}
+\end{table}

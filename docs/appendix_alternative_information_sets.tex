@@ -1,0 +1,203 @@
+% =============================================================================
+%  appendix_alternative_information_sets.tex
+%  Numbers synced to the re-run output (tab_dralacbn_information_set_robustness,
+%  tab_var_stability_info_sets, paper_numbers.csv). Changes vs previous draft:
+%   - p_hat 3.18% -> 3.20%;
+%   - robustness peaks: monetary 0.039 -> 0.030, uncertainty 0.023 -> 0.013
+%     (real-side 0.033 and lighter 0.021 unchanged); R^2 / OOS RMSE refreshed;
+%   - stability shares refreshed (uncertainty 0.2026 -> 0.5196, etc.);
+%   - "monetary largest response" reworded (it is now comparable to, not above,
+%     the baseline); table notes moved into minipages.
+% =============================================================================
+
+\subsection{Alternative VAR information sets}
+\label{app:alternative_information_sets}
+This appendix examines whether the credit-risk response depends on the
+information set used in the VAR. The baseline specification in the main text
+uses a parsimonious real-side VAR. We compare it with three alternatives: a
+lighter real-side specification, a monetary specification, and an uncertainty
+specification; their composition is given in
+Table~\ref{tab:variables_macro_all}. In all exercises, the Merton--Vasicek
+credit-risk parameters are kept fixed at their baseline values
+($\widehat p=3.20\%$, $\widehat\rho=0.051$). Differences across
+specifications therefore come only from the macro-financial transmission
+mechanism and from the selected satellite bridge from macro-financial
+variables to the systematic credit factor.
+Figure~\ref{fig:robust_var_irf_alternatives} reports the macro-financial
+responses for the three alternative information sets. The lighter real-side
+specification checks that the baseline response does not rely on the full
+real-side block used in the main text. The monetary and uncertainty
+specifications allow the GPR innovation to propagate through other dimensions
+of the aggregate environment. Across specifications, the shock remains
+persistent and the macro-financial responses are consistent with a
+contractionary geopolitical-risk disturbance, although the strength and
+timing of the propagation differ across information sets.
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/robustness/real_side_light/var_irf_1sd.pdf}
+    \caption{Lighter real-side information set}
+    \label{fig:robust_var_irf_real_side_light}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/robustness/monetary/var_irf_1sd.pdf}
+    \caption{Monetary information set}
+    \label{fig:robust_var_irf_monetary}
+\end{subfigure}
+\vspace{0.4em}
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/robustness/uncertainty/var_irf_1sd.pdf}
+    \caption{Uncertainty information set}
+    \label{fig:robust_var_irf_uncertainty}
+\end{subfigure}
+\caption{\textbf{Macro-financial responses under alternative VAR information
+sets.}
+\textit{Notes: Posterior-median generalized impulse responses to a
+one-standard-deviation innovation in the GPR equation, with $68\%$ (dark) and
+$90\%$ (light) pointwise credible bands. Each panel uses a different VAR
+information set. The baseline real-side responses are reported in the main
+text (Figure~\ref{fig:irfs_var}).}}
+\label{fig:robust_var_irf_alternatives}
+\end{figure}
+The differences in macro-financial propagation translate into different
+credit-risk responses. Figure~\ref{fig:robust_pd_girf_alternatives} reports
+the portfolio default-probability responses for the three alternative
+information sets, and Table~\ref{tab:dralacbn_information_set_robustness}
+summarizes the peaks. All specifications generate a positive median response
+of portfolio PDs to a GPR innovation. Relative to the baseline peak of
+$+0.033$ percentage points at $h=3$ (Section~\ref{sec:empirical_results}),
+the lighter real-side specification produces a smaller and earlier response
+($+0.021$ percentage points at $h=1$), the monetary specification a comparable
+one ($+0.030$ at $h=1$), and the uncertainty specification a smaller one
+($+0.013$ at $h=1$). The positive credit-risk effect of geopolitical-risk
+innovations is therefore not confined to the baseline real-side channel,
+although its magnitude and timing depend on the macro-financial channels
+included in the VAR.
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{0.31\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/robustness/real_side_light/pd_girf_1sd.pdf}
+    \caption{Lighter real-side}
+    \label{fig:robust_pd_girf_real_side_light}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.31\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/robustness/monetary/pd_girf_1sd.pdf}
+    \caption{Monetary}
+    \label{fig:robust_pd_girf_monetary}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.31\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/robustness/uncertainty/pd_girf_1sd.pdf}
+    \caption{Uncertainty}
+    \label{fig:robust_pd_girf_uncertainty}
+\end{subfigure}
+\caption{\textbf{Portfolio default-probability responses under alternative VAR
+information sets.}
+\textit{Notes: Posterior-median generalized impulse responses of portfolio
+default probabilities to a one-standard-deviation innovation in the GPR
+equation, with $68\%$ (dark) and $90\%$ (light) pointwise credible bands, in
+percentage points. The Merton--Vasicek parameters are fixed across
+specifications; only the VAR information set and the selected satellite
+bridge change. The baseline real-side response is reported in the main text
+(Figure~\ref{fig:girf_Z_PD}).}}
+\label{fig:robust_pd_girf_alternatives}
+\end{figure}
+\begin{table}[!htbp]
+  \centering
+  \scriptsize
+  \tablestretch
+  \compacttablecols
+  \setlength{\tabcolsep}{6pt}
+  \caption{\textbf{DRALACBN credit-risk responses across VAR information sets.}}
+  \label{tab:dralacbn_information_set_robustness}
+  \begin{minipage}{0.92\textwidth}
+  \centering
+  \resizebox{\textwidth}{!}{%
+    \begin{tabular}{lcccc}
+      \toprule
+      Information set & $k$ & Sat. $R^2$ & OOS RMSE & Peak $\Delta$PD, one s.d. (pp) \\
+      \midrule
+      Real-side & 6 & 0.889 & 0.4203 & $0.033$ $(h=3)$ \\
+      Real-side (lighter) & 4 & 0.865 & 0.4742 & $0.021$ $(h=1)$ \\
+      Monetary & 5 & 0.633 & 0.8759 & $0.030$ $(h=1)$ \\
+      Uncertainty & 5 & 0.769 & 0.6862 & $0.013$ $(h=1)$ \\
+      \bottomrule
+    \end{tabular}%
+  }
+  \medskip
+  \footnotesize
+  \justifying
+  \noindent \textbf{Note:} The Merton--Vasicek systematic factor $Z$, asset
+  correlation $\rho$, and TTC PD are fixed within the DRALACBN application.
+  Across information sets, only the VAR transmission mechanism and the
+  selected satellite bridge change. Peak $\Delta$PD is the largest
+  posterior-median PD response to a one-standard-deviation innovation in the
+  GPR equation, in percentage points, with the corresponding horizon in
+  parentheses. $Z$ is reconstructed from the FRED delinquency proxy and kept
+  in its original Merton--Vasicek scale.
+  \end{minipage}
+\end{table}
+Table~\ref{tab:var_stability_info_sets} reports posterior stability
+diagnostics for the BVAR draws. Stable posterior draws are obtained for all
+retained information sets, but the stable share varies across specifications.
+The monetary specification is the most stable, with a stable share of
+$0.8147$, whereas the uncertainty and baseline real-side specifications have
+the lowest stable shares, equal to $0.5196$ and $0.5868$; the lighter
+real-side specification lies in between, at $0.6379$. Conditional on
+stability, the largest-modulus eigenvalues remain close to but below one
+across all specifications, with posterior medians between $0.9910$ and
+$0.9961$ and 95th percentiles below one. The robustness results should
+therefore be read as conditional on stable posterior draws.
+\begin{table}[!htbp]
+  \centering
+  \scriptsize
+  \tablestretch
+  \compacttablecols
+  \setlength{\tabcolsep}{5pt}
+  \caption{\textbf{Posterior stability diagnostics for the BVAR information sets.}}
+  \label{tab:var_stability_info_sets}
+  \resizebox{1\textwidth}{!}{%
+    \begin{tabular}{lccccccc}
+      \toprule
+      Spec & $k$ & $p$ & Draws & Stable share & Stable draws
+      & $|\lambda|_{\max}$ median & $|\lambda|_{\max}$ p95 \\
+      \midrule
+      Real-side
+      & 6 & 2 & 30\,000 & 0.5868 & 17\,605 & 0.9961 & 0.9996 \\
+      Real-side (lighter)
+      & 4 & 2 & 30\,000 & 0.6379 & 19\,137 & 0.9910 & 0.9991 \\
+      Monetary
+      & 5 & 2 & 30\,000 & 0.8147 & 24\,442 & 0.9944 & 0.9992 \\
+      Uncertainty
+      & 5 & 2 & 30\,000 & 0.5196 & 15\,588 & 0.9952 & 0.9995 \\
+      \bottomrule
+    \end{tabular}%
+  }
+  \par
+  \medskip
+  \begin{minipage}{\textwidth}
+  \footnotesize
+  \noindent \textbf{Note:} $k$ is the number of variables in the VAR,
+  including the GPR index, and $p$ is the lag order. Stable share is the
+  fraction of posterior draws whose companion-matrix spectral radius is
+  strictly below one. The last two columns report the posterior median and
+  95th percentile of the largest-modulus eigenvalue over stable draws.
+  \end{minipage}
+\end{table}
+Overall, the robustness exercise supports the main empirical conclusion. The
+estimated effect of a GPR innovation on aggregate U.S. credit risk is modest
+in absolute terms, but it is positive across the retained information sets.
+The amplitude varies because the VAR determines the macro-financial
+propagation of the shock, while the satellite equation determines which
+propagated variables are transmitted to the Merton--Vasicek credit block.
+This sensitivity is informative: the closed-form response can be recomputed
+under alternative macro-financial information sets while keeping the
+credit-risk block fixed.

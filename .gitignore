@@ -1,0 +1,46 @@
+# R / RStudio
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+.Rproj.user/
+*.Rproj.bak
+
+# renv library (kept reproducible via renv.lock; the library itself is local)
+renv/library/
+renv/local/
+renv/cellar/
+renv/staging/
+renv/python/
+
+# OS junk
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Logs and run artifacts
+logs/
+
+# Personal notes / scratch (not for the public replication package)
+todo.txt
+todo_review_JAE.rtf
+*.rtf
+
+# Side analyses not used by the article: kept locally, excluded from the
+# published replication package.
+code/extra/
+run_extra.R
+code/shared/replot_var_irf_gpr_first.R
+
+# Raw data used only by the side analyses (not by the article's pipeline).
+data/raw/data_risk_EBA.csv
+data/raw/default/CORALACBN.csv
+
+# Exploratory notes on alternative default proxies (not part of the article).
+docs/default_proxies.md
+
+# Generated outputs (reproducible from run_all.R). Ignore the heavy
+# intermediates but keep the paper deliverables.
+output/*
+!output/paper/
+!output/paper_replication/

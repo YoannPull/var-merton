@@ -1,0 +1,22 @@
+\begin{table}[!htbp]
+\centering
+\caption{DRALACBN: selected satellite, HAC (Newey-West) standard errors (Real-side (lighter) information set)}
+\label{tab:dralacbn_real_side_lighter_satellite_hac}
+\begin{tabular}{lrr}
+\toprule
+Variable & Estimate & Std. Error \\
+\midrule
+(Intercept) & 14.817015$^{***}$ & 1.618890 \\
+log_inv_pc_lag0 & 0.019459$^{*}$ & 0.009623 \\
+log_inv_pc_lag1 & 0.018329 & 0.010985 \\
+log_oil_real_lag1 & -0.007100$^{*}$ & 0.003568 \\
+log_oil_real_lag4 & -0.005828 & 0.003091 \\
+infl_yoy_pct_lag1 & 0.072596 & 0.042798 \\
+infl_yoy_pct_lag4 & 0.075133 & 0.070395 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Notes: OLS point estimates of the single best (AIC-selected) satellite with heteroskedasticity- and autocorrelation-consistent (Newey-West, 4 lags, prewhitened) standard errors. Significance: $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
+\end{tablenotes}
+\end{table}

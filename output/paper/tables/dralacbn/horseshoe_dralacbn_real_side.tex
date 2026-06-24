@@ -1,0 +1,44 @@
+\begin{table}[!htbp]
+\centering
+\caption{DRALACBN --- horseshoe satellite regression (Real-side information set)}
+\label{tab:dralacbn_real_side_horseshoe}
+\begin{tabular}{lrrrr}
+\toprule
+Variable & Coef. & Post. SD & 90\% CI & Signal wt. \\
+\midrule
+Intercept & 13.3590 & & & \\
+Investment (p.c., log) (lag 0) & 0.0355$^{***}$ & 0.0107 & $[0.0168,\ 0.0518]$ & 1.00 \\
+Investment (p.c., log) (lag 2) & 0.0096 & 0.0106 & $[-0.0016,\ 0.0300]$ & 0.86 \\
+Real Oil Price (log) (lag 4) & -0.0025 & 0.0022 & $[-0.0064,\ 0.0004]$ & 0.83 \\
+Real Oil Price (log) (lag 1) & -0.0023 & 0.0024 & $[-0.0067,\ 0.0007]$ & 0.81 \\
+Real GDP (p.c., log) (lag 4) & -0.0120 & 0.0180 & $[-0.0489,\ 0.0055]$ & 0.80 \\
+Investment (p.c., log) (lag 1) & 0.0065 & 0.0108 & $[-0.0031,\ 0.0303]$ & 0.80 \\
+Real GDP (p.c., log) (lag 0) & -0.0103 & 0.0182 & $[-0.0497,\ 0.0068]$ & 0.79 \\
+Inflation YoY (%) (lag 4) & 0.0458 & 0.0384 & $[-0.0074,\ 0.1134]$ & 0.79 \\
+Real GDP (p.c., log) (lag 2) & -0.0063 & 0.0153 & $[-0.0394,\ 0.0099]$ & 0.78 \\
+Real Oil Price (log) (lag 0) & -0.0018 & 0.0018 & $[-0.0051,\ 0.0005]$ & 0.77 \\
+Investment (p.c., log) (lag 3) & 0.0039 & 0.0067 & $[-0.0029,\ 0.0182]$ & 0.77 \\
+Real GDP (p.c., log) (lag 3) & -0.0076 & 0.0156 & $[-0.0414,\ 0.0081]$ & 0.77 \\
+Real GDP (p.c., log) (lag 1) & -0.0062 & 0.0153 & $[-0.0398,\ 0.0095]$ & 0.76 \\
+Real Oil Price (log) (lag 2) & -0.0016 & 0.0021 & $[-0.0056,\ 0.0009]$ & 0.76 \\
+Real Oil Price (log) (lag 3) & -0.0012 & 0.0020 & $[-0.0050,\ 0.0012]$ & 0.74 \\
+Investment (p.c., log) (lag 4) & 0.0019 & 0.0047 & $[-0.0036,\ 0.0115]$ & 0.73 \\
+Private Employment (p.c., log) (lag 1) & 0.0118 & 0.0190 & $[-0.0112,\ 0.0483]$ & 0.72 \\
+Inflation YoY (%) (lag 3) & 0.0258 & 0.0414 & $[-0.0282,\ 0.1046]$ & 0.70 \\
+Private Employment (p.c., log) (lag 4) & -0.0092 & 0.0156 & $[-0.0396,\ 0.0107]$ & 0.69 \\
+Inflation YoY (%) (lag 1) & 0.0205 & 0.0366 & $[-0.0275,\ 0.0910]$ & 0.69 \\
+Private Employment (p.c., log) (lag 2) & 0.0057 & 0.0168 & $[-0.0179,\ 0.0370]$ & 0.69 \\
+Inflation YoY (%) (lag 2) & 0.0133 & 0.0354 & $[-0.0373,\ 0.0796]$ & 0.67 \\
+Private Employment (p.c., log) (lag 0) & 0.0002 & 0.0148 & $[-0.0251,\ 0.0247]$ & 0.66 \\
+Inflation YoY (%) (lag 0) & 0.0106 & 0.0326 & $[-0.0383,\ 0.0702]$ & 0.66 \\
+Private Employment (p.c., log) (lag 3) & -0.0028 & 0.0158 & $[-0.0318,\ 0.0207]$ & 0.66 \\
+\midrule
+Prior & \multicolumn{4}{r}{horseshoe (shrinkage)} \\
+Posterior draws & \multicolumn{4}{r}{10000} \\
+Observations & \multicolumn{4}{r}{152} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\small
+\item Notes: Posterior mean, standard deviation and 90\% credible interval of each satellite slope under a horseshoe shrinkage prior, on the full lagged design. The signal weight $1-\kappa_j$ (with $\kappa_j$ the local shrinkage factor) is an inclusion-like measure in $[0,1]$, near one for retained signals and near zero for shrunk noise. Stars $^{*}/^{**}/^{***}$ denote a posterior probability of the coefficient sign exceeding $0.95/0.975/0.99$.
+\end{tablenotes}
+\end{table}

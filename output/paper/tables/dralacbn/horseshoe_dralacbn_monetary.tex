@@ -1,0 +1,39 @@
+\begin{table}[!htbp]
+\centering
+\caption{DRALACBN --- horseshoe satellite regression (Monetary information set)}
+\label{tab:dralacbn_monetary_horseshoe}
+\begin{tabular}{lrrrr}
+\toprule
+Variable & Coef. & Post. SD & 90\% CI & Signal wt. \\
+\midrule
+Intercept & 15.9475 & & & \\
+2-Year Treasury Yield (lag 0) & 0.2338$^{***}$ & 0.0915 & $[0.0646,\ 0.3755]$ & 0.97 \\
+Real GDP (p.c., log) (lag 0) & 0.0762$^{*}$ & 0.0450 & $[0.0003,\ 0.1564]$ & 0.95 \\
+Real GDP (p.c., log) (lag 4) & -0.0243 & 0.0360 & $[-0.1018,\ 0.0061]$ & 0.74 \\
+Inflation YoY (%) (lag 4) & -0.0601 & 0.0556 & $[-0.1619,\ 0.0102]$ & 0.69 \\
+10Y-3M Term Spread (lag 0) & -0.0818 & 0.0929 & $[-0.2578,\ 0.0261]$ & 0.69 \\
+Real GDP (p.c., log) (lag 1) & 0.0112 & 0.0275 & $[-0.0129,\ 0.0702]$ & 0.68 \\
+Real GDP (p.c., log) (lag 3) & -0.0048 & 0.0187 & $[-0.0400,\ 0.0147]$ & 0.66 \\
+2-Year Treasury Yield (lag 1) & 0.0007 & 0.0681 & $[-0.1067,\ 0.1098]$ & 0.62 \\
+2-Year Treasury Yield (lag 3) & -0.0151 & 0.0510 & $[-0.1127,\ 0.0481]$ & 0.61 \\
+2-Year Treasury Yield (lag 2) & -0.0174 & 0.0575 & $[-0.1306,\ 0.0530]$ & 0.61 \\
+Real GDP (p.c., log) (lag 2) & 0.0019 & 0.0162 & $[-0.0174,\ 0.0276]$ & 0.60 \\
+2-Year Treasury Yield (lag 4) & -0.0058 & 0.0412 & $[-0.0773,\ 0.0562]$ & 0.58 \\
+10Y-3M Term Spread (lag 1) & -0.0225 & 0.0766 & $[-0.1612,\ 0.0830]$ & 0.58 \\
+Inflation YoY (%) (lag 3) & -0.0161 & 0.0511 & $[-0.1096,\ 0.0563]$ & 0.57 \\
+10Y-3M Term Spread (lag 2) & -0.0076 & 0.0697 & $[-0.1258,\ 0.0986]$ & 0.55 \\
+Inflation YoY (%) (lag 2) & -0.0038 & 0.0443 & $[-0.0812,\ 0.0683]$ & 0.54 \\
+Inflation YoY (%) (lag 1) & 0.0009 & 0.0421 & $[-0.0665,\ 0.0715]$ & 0.53 \\
+10Y-3M Term Spread (lag 3) & -0.0018 & 0.0614 & $[-0.1048,\ 0.0934]$ & 0.52 \\
+10Y-3M Term Spread (lag 4) & 0.0113 & 0.0533 & $[-0.0668,\ 0.1085]$ & 0.52 \\
+Inflation YoY (%) (lag 0) & -0.0090 & 0.0375 & $[-0.0786,\ 0.0442]$ & 0.50 \\
+\midrule
+Prior & \multicolumn{4}{r}{horseshoe (shrinkage)} \\
+Posterior draws & \multicolumn{4}{r}{10000} \\
+Observations & \multicolumn{4}{r}{152} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\small
+\item Notes: Posterior mean, standard deviation and 90\% credible interval of each satellite slope under a horseshoe shrinkage prior, on the full lagged design. The signal weight $1-\kappa_j$ (with $\kappa_j$ the local shrinkage factor) is an inclusion-like measure in $[0,1]$, near one for retained signals and near zero for shrunk noise. Stars $^{*}/^{**}/^{***}$ denote a posterior probability of the coefficient sign exceeding $0.95/0.975/0.99$.
+\end{tablenotes}
+\end{table}

@@ -1,0 +1,40 @@
+\begin{table}[!htbp]
+\centering
+\caption{DRALACBN --- model-averaged satellite regression (Financial information set)}
+\label{tab:dralacbn_financial_bma_satellite}
+\begin{tabular}{lrrrr}
+\toprule
+Variable & Coef. & Post. SD & 90\% CI & Incl. prob. \\
+\midrule
+Intercept & -3.6781$^{***}$ & 0.2569 & $[-4.0980,\ -3.2427]$ & 1.00 \\
+2-Year Treasury Yield (lag 0) & 0.1687$^{**}$ & 0.0359 & $[0.1313,\ 0.2307]$ & 0.99 \\
+NFCI (lag 4) & -0.5332$^{***}$ & 0.1712 & $[-0.8170,\ -0.2661]$ & 0.97 \\
+Real S&P 500 (log) (lag 4) & 0.0121 & 0.0065 & $[0.0000,\ 0.0176]$ & 0.82 \\
+NFCI (lag 0) & -0.1873$^{***}$ & 0.1860 & $[-0.4711,\ 0.0000]$ & 0.56 \\
+NFCI (lag 1) & -0.1513$^{***}$ & 0.2019 & $[-0.5164,\ 0.0000]$ & 0.41 \\
+VIX (lag 4) & 0.0042 & 0.0083 & $[0.0000,\ 0.0234]$ & 0.26 \\
+VIX (lag 0) & -0.0029$^{***}$ & 0.0066 & $[-0.0189,\ 0.0000]$ & 0.21 \\
+Real S&P 500 (log) (lag 3) & 0.0026 & 0.0061 & $[0.0000,\ 0.0166]$ & 0.20 \\
+NFCI (lag 2) & -0.0365$^{***}$ & 0.1084 & $[-0.3236,\ 0.0000]$ & 0.14 \\
+VIX (lag 1) & -0.0014$^{***}$ & 0.0046 & $[-0.0131,\ 0.0000]$ & 0.12 \\
+Real S&P 500 (log) (lag 0) & 0.0006 & 0.0019 & $[0.0000,\ 0.0054]$ & 0.11 \\
+VIX (lag 2) & -0.0011$^{***}$ & 0.0040 & $[-0.0115,\ 0.0000]$ & 0.11 \\
+NFCI (lag 3) & -0.0345$^{***}$ & 0.1230 & $[-0.3257,\ 0.0000]$ & 0.11 \\
+Real S&P 500 (log) (lag 1) & 0.0004 & 0.0018 & $[0.0000,\ 0.0044]$ & 0.09 \\
+Real S&P 500 (log) (lag 2) & 0.0006 & 0.0028 & $[0.0000,\ 0.0059]$ & 0.09 \\
+2-Year Treasury Yield (lag 3) & -0.0042$^{***}$ & 0.0191 & $[-0.0394,\ 0.0000]$ & 0.08 \\
+VIX (lag 3) & -0.0008$^{**}$ & 0.0036 & $[-0.0064,\ 0.0000]$ & 0.08 \\
+2-Year Treasury Yield (lag 4) & -0.0028$^{***}$ & 0.0138 & $[-0.0231,\ 0.0000]$ & 0.07 \\
+2-Year Treasury Yield (lag 1) & 0.0004$^{**}$ & 0.0272 & $[0.0000,\ 0.0000]$ & 0.05 \\
+2-Year Treasury Yield (lag 2) & -0.0013$^{**}$ & 0.0141 & $[0.0000,\ 0.0000]$ & 0.04 \\
+\midrule
+Weighting & \multicolumn{4}{r}{bic (cum_weight)} \\
+Models averaged & \multicolumn{4}{r}{537} \\
+Posterior draws & \multicolumn{4}{r}{10000} \\
+Observations & \multicolumn{4}{r}{152} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\small
+\item Notes: Posterior mean, standard deviation and 90\% credible interval of each satellite coefficient under Akaike-weight model averaging. Estimates integrate parameter uncertainty (Jeffreys posterior within each model) and model-selection uncertainty (mixture across the top specifications). Inclusion probability is the cumulative Akaike weight of the retained models containing the term. Stars $^{*}/^{**}/^{***}$ denote a posterior probability of the coefficient sign exceeding $0.95/0.975/0.99$.
+\end{tablenotes}
+\end{table}

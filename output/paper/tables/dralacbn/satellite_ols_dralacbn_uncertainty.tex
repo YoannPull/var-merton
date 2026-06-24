@@ -1,0 +1,29 @@
+\begin{table}[!htbp]
+\centering
+\caption{DRALACBN: selected satellite under the Uncertainty information set}
+\label{tab:dralacbn_uncertainty_satellite}
+\begin{tabular}{lrr}
+\toprule
+Variable & Estimate & Std. Error \\
+\midrule
+(Intercept) & -17.196317$^{***}$ & 2.700308 \\
+vix_lag3 & -0.051631$^{***}$ & 0.006790 \\
+log_gdp_pc_lag0 & 0.090842$^{***}$ & 0.027972 \\
+log_gdp_pc_lag4 & -0.140494$^{***}$ & 0.025343 \\
+log_sp500_real_lag0 & 0.013881$^{***}$ & 0.003718 \\
+log_sp500_real_lag3 & -0.041908$^{***}$ & 0.009719 \\
+log_sp500_real_lag4 & 0.054619$^{***}$ & 0.008912 \\
+\midrule
+Observations & \multicolumn{2}{r}{152} \\
+Residual std. error & \multicolumn{2}{r}{0.4896} \\
+$R^2$ / adj. $R^2$ & \multicolumn{2}{r}{0.7688 / 0.7592} \\
+AIC & \multicolumn{2}{r}{223.061} \\
+Information set & \multicolumn{2}{r}{Uncertainty} \\
+Selection & \multicolumn{2}{r}{Akaike model averaging (600 models)} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item The dependent variable is the reconstructed systematic factor Z. Bayesian posterior draws are generated conditionally on this selected linear satellite.
+\end{tablenotes}
+\end{table}

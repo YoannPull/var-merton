@@ -1,0 +1,40 @@
+\begin{table}[!htbp]
+\centering
+\caption{DRALACBN --- model-averaged satellite regression (Monetary information set)}
+\label{tab:dralacbn_monetary_bma_satellite}
+\begin{tabular}{lrrrr}
+\toprule
+Variable & Coef. & Post. SD & 90\% CI & Incl. prob. \\
+\midrule
+Intercept & 16.7367$^{***}$ & 2.4598 & $[12.1303,\ 20.2035]$ & 1.00 \\
+Real GDP (p.c., log) (lag 0) & 0.1484$^{***}$ & 0.0411 & $[0.0719,\ 0.2078]$ & 0.99 \\
+2-Year Treasury Yield (lag 0) & 0.2108$^{*}$ & 0.0828 & $[0.0432,\ 0.3303]$ & 0.96 \\
+Real GDP (p.c., log) (lag 4) & -0.0879$^{***}$ & 0.0452 & $[-0.1537,\ 0.0000]$ & 0.89 \\
+Inflation YoY (%) (lag 4) & -0.0293$^{***}$ & 0.0507 & $[-0.1388,\ 0.0000]$ & 0.32 \\
+10Y-3M Term Spread (lag 0) & -0.0379$^{**}$ & 0.0775 & $[-0.2201,\ 0.0000]$ & 0.26 \\
+Inflation YoY (%) (lag 0) & -0.0071$^{**}$ & 0.0247 & $[-0.0672,\ 0.0000]$ & 0.12 \\
+10Y-3M Term Spread (lag 1) & -0.0097$^{**}$ & 0.0412 & $[-0.1025,\ 0.0000]$ & 0.11 \\
+Inflation YoY (%) (lag 3) & -0.0057$^{**}$ & 0.0244 & $[-0.0624,\ 0.0000]$ & 0.11 \\
+2-Year Treasury Yield (lag 1) & -0.0000 & 0.0530 & $[0.0000,\ 0.0025]$ & 0.10 \\
+Real GDP (p.c., log) (lag 3) & -0.0022$^{*}$ & 0.0192 & $[-0.0180,\ 0.0000]$ & 0.09 \\
+Real GDP (p.c., log) (lag 1) & 0.0038 & 0.0217 & $[0.0000,\ 0.0232]$ & 0.08 \\
+Inflation YoY (%) (lag 2) & -0.0029$^{**}$ & 0.0176 & $[-0.0214,\ 0.0000]$ & 0.08 \\
+Inflation YoY (%) (lag 1) & -0.0019$^{**}$ & 0.0154 & $[-0.0044,\ 0.0000]$ & 0.07 \\
+2-Year Treasury Yield (lag 2) & -0.0041$^{**}$ & 0.0292 & $[-0.0051,\ 0.0000]$ & 0.07 \\
+Real GDP (p.c., log) (lag 2) & 0.0021$^{*}$ & 0.0161 & $[0.0000,\ 0.0000]$ & 0.07 \\
+10Y-3M Term Spread (lag 2) & -0.0027$^{**}$ & 0.0252 & $[0.0000,\ 0.0000]$ & 0.07 \\
+2-Year Treasury Yield (lag 3) & -0.0023$^{**}$ & 0.0203 & $[0.0000,\ 0.0000]$ & 0.06 \\
+10Y-3M Term Spread (lag 3) & -0.0010$^{**}$ & 0.0185 & $[0.0000,\ 0.0000]$ & 0.06 \\
+2-Year Treasury Yield (lag 4) & -0.0001$^{**}$ & 0.0145 & $[0.0000,\ 0.0000]$ & 0.05 \\
+10Y-3M Term Spread (lag 4) & 0.0000$^{*}$ & 0.0156 & $[0.0000,\ 0.0000]$ & 0.05 \\
+\midrule
+Weighting & \multicolumn{4}{r}{bic (cum_weight)} \\
+Models averaged & \multicolumn{4}{r}{619} \\
+Posterior draws & \multicolumn{4}{r}{10000} \\
+Observations & \multicolumn{4}{r}{152} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\small
+\item Notes: Posterior mean, standard deviation and 90\% credible interval of each satellite coefficient under Akaike-weight model averaging. Estimates integrate parameter uncertainty (Jeffreys posterior within each model) and model-selection uncertainty (mixture across the top specifications). Inclusion probability is the cumulative Akaike weight of the retained models containing the term. Stars $^{*}/^{**}/^{***}$ denote a posterior probability of the coefficient sign exceeding $0.95/0.975/0.99$.
+\end{tablenotes}
+\end{table}

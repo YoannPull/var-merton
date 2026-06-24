@@ -1,13 +1,12 @@
 # Code structure
 
-Repository-level entry points (run from the repository root):
+Repository-level entry point (run from the repository root):
 
 ```r
-source("run_all.R")     # paper-core pipeline
-source("run_extra.R")   # optional side analyses (after run_all.R)
+source("run_all.R")
 ```
 
-Paper-core pipeline scripts:
+Pipeline scripts (in execution order):
 
 ```text
 code/01_process_gpr.R
@@ -24,10 +23,5 @@ code/shared/variable_definitions.R
 code/shared/collate_paper_outputs.R
 code/shared/make_paper_outputs.R
 ```
-
-Side analyses NOT used by the current draft live under `code/extra/`
-(EBA, coralacbn, direct-channel, the fixed-design / satellite-by-window
-short-sample variants 05-06, and the Gulf-War exercise) and are run via
-`run_extra.R`.
 
 Shared functions and engines live in `code/shared/`.

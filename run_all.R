@@ -6,9 +6,9 @@
 #  or:
 #    Rscript run_all.R
 #
-#  Runs the PAPER-CORE pipeline only (data -> BVAR application + robustness ->
-#  perfect foresight -> state dependence -> paper deliverables). Side analyses
-#  not used by the current draft live in code/extra/ and are run via run_extra.R.
+#  Runs the full pipeline: data -> BVAR application + robustness -> direct-channel
+#  test -> short-default-sample -> perfect foresight -> state dependence ->
+#  paper deliverables.
 #
 #  Output layout:
 #    output/applications/dralacbn/main_specification/
@@ -52,14 +52,10 @@ cat("Session log written to: ", log_file, "\n\n", sep = "")
 # Pipeline definition
 # -----------------------------------------------------------------------------
 
-#  Paper-core pipeline: only the steps that produce the figures, tables and
-#  in-text numbers of the current paper. It includes the direct-channel /
-#  orthogonality test (03 -> 04, which relaxes eta perp u and justifies the
-#  baseline closed form) and the per-window BMA short-default-sample figures
-#  (07 -> 09). Side analyses not used by the current draft (EBA application,
-#  charge-off/coralacbn, the fixed-design / satellite-by-window short-sample
-#  variants 05-06, Gulf-War perfect foresight) live in code/extra/ and are run
-#  separately via run_extra.R — nothing is deleted.
+#  Pipeline producing every figure, table and in-text number of the paper. It
+#  includes the direct-channel / orthogonality test (03 -> 04, which relaxes the
+#  satellite exclusion restriction and justifies the baseline closed form) and
+#  the per-window BMA short-default-sample figures (07 -> 09).
 pipeline_steps <- data.frame(
   phase = c(
     "data",

@@ -1,0 +1,29 @@
+\begin{table}[!htbp]
+\centering
+\caption{DRALACBN: selected satellite under the Financial information set}
+\label{tab:dralacbn_financial_satellite}
+\begin{tabular}{lrr}
+\toprule
+Variable & Estimate & Std. Error \\
+\midrule
+(Intercept) & -3.805475$^{***}$ & 0.240981 \\
+vix_lag2 & -0.015486$^{***}$ & 0.005478 \\
+vix_lag4 & 0.017618$^{**}$ & 0.006939 \\
+log_sp500_real_lag4 & 0.016379$^{***}$ & 0.000759 \\
+nfci_lag0 & -0.352514$^{***}$ & 0.076762 \\
+nfci_lag4 & -0.685918$^{***}$ & 0.104336 \\
+gs2_lag0 & 0.164479$^{***}$ & 0.015992 \\
+\midrule
+Observations & \multicolumn{2}{r}{152} \\
+Residual std. error & \multicolumn{2}{r}{0.3985} \\
+$R^2$ / adj. $R^2$ & \multicolumn{2}{r}{0.8468 / 0.8404} \\
+AIC & \multicolumn{2}{r}{160.527} \\
+Information set & \multicolumn{2}{r}{Financial} \\
+Selection & \multicolumn{2}{r}{Akaike model averaging (537 models)} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item The dependent variable is the reconstructed systematic factor Z. Bayesian posterior draws are generated conditionally on this selected linear satellite.
+\end{tablenotes}
+\end{table}

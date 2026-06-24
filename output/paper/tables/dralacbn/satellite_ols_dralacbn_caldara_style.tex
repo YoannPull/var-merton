@@ -1,0 +1,29 @@
+\begin{table}[!htbp]
+\centering
+\caption{DRALACBN: selected satellite under the Caldara-style information set}
+\label{tab:dralacbn_caldara_style_satellite}
+\begin{tabular}{lrr}
+\toprule
+Variable & Estimate & Std. Error \\
+\midrule
+(Intercept) & 14.357652$^{***}$ & 0.452735 \\
+log_inv_pc_lag4 & 0.035258$^{***}$ & 0.001053 \\
+log_oil_real_lag4 & -0.007184$^{***}$ & 0.000650 \\
+gs2_lag0 & 0.163679$^{***}$ & 0.022878 \\
+gs2_lag3 & -0.054311$^{**}$ & 0.022917 \\
+nfci_lag0 & -0.340811$^{***}$ & 0.051200 \\
+nfci_lag4 & -0.515806$^{***}$ & 0.049385 \\
+\midrule
+Observations & \multicolumn{2}{r}{152} \\
+Residual std. error & \multicolumn{2}{r}{0.2663} \\
+$R^2$ / adj. $R^2$ & \multicolumn{2}{r}{0.9316 / 0.9288} \\
+AIC & \multicolumn{2}{r}{37.950} \\
+Information set & \multicolumn{2}{r}{Caldara-style} \\
+Selection & \multicolumn{2}{r}{Akaike model averaging (54 models)} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item The dependent variable is the reconstructed systematic factor Z. Bayesian posterior draws are generated conditionally on this selected linear satellite.
+\end{tablenotes}
+\end{table}

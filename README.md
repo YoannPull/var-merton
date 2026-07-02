@@ -2,8 +2,8 @@
 
 Replication code and data for the paper:
 
-> **Stress Testing Credit Portofolios Under 
-> Geopolitical Risk** — G. Flament, C. Hurlin, Q. Lajaunie, Y. Pull.
+> **Generalized Impulse Responses of Portfolio Default Probabilities:  
+> A Modular Framework with an Application to Geopolitical Risk** — G. Flament, C. Hurlin, Q. Lajaunie, Y. Pull.
 
 The framework propagates an identified macro-financial innovation through a
 Bayesian VAR, maps it into a latent systematic credit factor via a satellite

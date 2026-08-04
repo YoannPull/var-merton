@@ -39,7 +39,10 @@ ROSE       <- if (exists("SQUARE_ROSE2")) SQUARE_ROSE2 else "#AB4A7D"
 ROSE_LIGHT <- if (exists("SQUARE_ROSE")) SQUARE_ROSE else "#F3D6E3"
 
 DATE_MAX <- as.Date("2024-12-31")
-GPR_DATE_MIN <- as.Date("1986-01-01")
+# Both descriptive series (GPR and DRALACBN) are displayed from 1985Q1, the
+# first year of both series. Display only: the VAR estimation sample
+# (1986Q1-2024Q4) is unchanged.
+SERIES_DATE_MIN <- as.Date("1985-01-01")
 
 theme_paper <- function() {
   theme_minimal(base_size = 13) +
@@ -154,11 +157,14 @@ plot_band_facet <- function(path) {
 # -----------------------------------------------------------------------------
 # Descriptive figures
 # -----------------------------------------------------------------------------
-gpr_path <- if (exists("PATH_DATA_VAR")) PATH_DATA_VAR else "data/processed/data_var_for_model.csv"
+# GPR is read from the full macro file (not the VAR complete-case file, which
+# starts in 1986Q1) so that the plot can start in 1985Q1.
+gpr_path <- file.path(if (exists("DIR_PROCESSED")) DIR_PROCESSED else "data/processed",
+                      "data_macro_full.csv")
 if (file.exists(gpr_path)) {
   g <- fread(gpr_path)
   g[, date := as.Date(Date)]
-  g <- g[date >= GPR_DATE_MIN & date <= DATE_MAX & is.finite(GPRD)]
+  g <- g[date >= SERIES_DATE_MIN & date <= DATE_MAX & is.finite(GPRD)]
   setorder(g, date)
   p_gpr <- ggplot(g, aes(date, GPRD)) +
     geom_line(color = BURGUNDY, linewidth = 0.7) +
@@ -184,7 +190,7 @@ if (file.exists(del_path)) {
   dcol <- intersect(c("observation_date", "DATE", "Date", "date"), names(dd))[1]
   vcol <- intersect(c("DRALACBN", "value", "VALUE"), names(dd))[1]
   dd <- data.table(date = as.Date(dd[[dcol]]), rate = as.numeric(dd[[vcol]]))
-  dd <- dd[date <= DATE_MAX & is.finite(rate)]; setorder(dd, date)
+  dd <- dd[date >= SERIES_DATE_MIN & date <= DATE_MAX & is.finite(rate)]; setorder(dd, date)
   ttc <- mean(dd$rate, na.rm = TRUE)
   rec <- recessions[end >= min(dd$date) & start <= max(dd$date)]
   p_dra <- ggplot(dd, aes(date, rate)) +

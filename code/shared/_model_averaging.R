@@ -380,7 +380,8 @@ write_bma_regression_table <- function(bsat, out_dir, app_name, info_set_name,
                                        info_set_label = info_set_name,
                                        var_labels = NULL,
                                        n_obs = NA_integer_,
-                                       app_label = app_name) {
+                                       app_label = app_name,
+                                       star_incl_min = 0.10) {
   if (is.null(bsat$bma)) return(invisible(FALSE))
 
   dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
@@ -412,9 +413,37 @@ write_bma_regression_table <- function(bsat, out_dir, app_name, info_set_name,
   rows <- lapply(colnames(draws), function(cn) {
     x <- draws[, cn]
     q <- stats::quantile(x, c(0.05, 0.16, 0.50, 0.84, 0.95), na.rm = TRUE)
-    p_pos <- mean(x > 0, na.rm = TRUE)
-    pdir <- max(p_pos, 1 - p_pos)
-    stars <- if (pdir >= 0.99) {
+
+    incl <- if (cn == "(Intercept)") {
+      1
+    } else if (cn %in% names(incl_map)) {
+      as.numeric(incl_map[[cn]])
+    } else {
+      NA_real_
+    }
+
+    # Sign probability must be CONDITIONAL ON INCLUSION. The mixture draws carry
+    # an atom at zero for every specification that excludes the term; counting
+    # those zeros in mean(x > 0) mechanically pushes max(p_pos, 1 - p_pos)
+    # toward one for low-inclusion terms, manufacturing significance stars out
+    # of the spike at zero rather than out of the coefficient's posterior. We
+    # therefore evaluate the sign probability on the included (non-zero) draws
+    # only, and also report the conditional-on-inclusion standard deviation so
+    # the dispersion shown next to a star refers to the same posterior.
+    x_in <- x[x != 0]
+    n_in <- length(x_in)
+    p_pos_cond <- if (n_in > 0L) mean(x_in > 0, na.rm = TRUE) else NA_real_
+    pdir <- if (is.na(p_pos_cond)) NA_real_ else max(p_pos_cond, 1 - p_pos_cond)
+    post_sd_incl <- if (n_in > 0L) stats::sd(x_in) else NA_real_
+
+    # Stars are suppressed below a minimum inclusion probability: at very low
+    # inclusion the conditional sign is rebuilt from only about
+    # inclusion x n_draws draws, too few for the sign probability to be
+    # reliable (Monte Carlo noise).
+    eligible <- !is.na(incl) && incl >= star_incl_min && !is.na(pdir)
+    stars <- if (!eligible) {
+      ""
+    } else if (pdir >= 0.99) {
       "***"
     } else if (pdir >= 0.975) {
       "**"
@@ -423,18 +452,13 @@ write_bma_regression_table <- function(bsat, out_dir, app_name, info_set_name,
     } else {
       ""
     }
-    incl <- if (cn == "(Intercept)") {
-      1
-    } else if (cn %in% names(incl_map)) {
-      as.numeric(incl_map[[cn]])
-    } else {
-      NA_real_
-    }
+
     data.table(
       term = cn,
       variable = pretty_term(cn),
       post_mean = mean(x, na.rm = TRUE),
       post_sd = stats::sd(x, na.rm = TRUE),
+      post_sd_incl = post_sd_incl,
       q05 = q[[1]], q16 = q[[2]], median = q[[3]], q84 = q[[4]], q95 = q[[5]],
       prob_direction = pdir,
       inclusion_prob = incl,
@@ -501,10 +525,16 @@ write_bma_regression_table <- function(bsat, out_dir, app_name, info_set_name,
       "interval of each satellite coefficient under Akaike-weight model ",
       "averaging. Estimates integrate parameter uncertainty (Jeffreys ",
       "posterior within each model) and model-selection uncertainty (mixture ",
-      "across the top specifications). Inclusion probability is the cumulative ",
-      "Akaike weight of the retained models containing the term. Stars ",
-      "$^{*}/^{**}/^{***}$ denote a posterior probability of the coefficient ",
-      "sign exceeding $0.95/0.975/0.99$.\n", sep = "", file = con)
+      "across the top specifications), and therefore include the zeros of the ",
+      "specifications that exclude the term. Inclusion probability is the ",
+      "cumulative Akaike weight of the retained models containing the term. ",
+      "Stars $^{*}/^{**}/^{***}$ denote a posterior probability of the ",
+      "coefficient sign exceeding $0.95/0.975/0.99$ \\emph{conditional on ",
+      "inclusion} (evaluated on the draws in which the term is included), and ",
+      "are shown only for terms with inclusion probability at least ",
+      formatC(star_incl_min, format = "f", digits = 2),
+      "; below that threshold the conditional sign probability is rebuilt from ",
+      "too few draws to be reliable.\n", sep = "", file = con)
   cat("\\end{tablenotes}\n\\end{table}\n", file = con)
 
   invisible(tab)

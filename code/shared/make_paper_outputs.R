@@ -123,6 +123,10 @@ copy_fig(file.path(main_spec, "irf", "PD_VaR", "pd_var_girf_one_sd_alpha0p99.pdf
          FIG_MAIN, "pd_var0p99_dralacbn_real_side_1sd.pdf")
 copy_fig(file.path(main_spec, "irf", "PD_VaR", "pd_mean_vs_var_one_sd.pdf"),
          FIG_MAIN, "pd_mean_vs_var_dralacbn_real_side_1sd.pdf")
+copy_fig(file.path(main_spec, "irf", "PD_VaR", "pd_mean_vs_es_one_sd.pdf"),
+         FIG_MAIN, "pd_mean_vs_es_dralacbn_real_side_1sd.pdf")
+copy_fig(file.path("output", "review", "figures", "simulation_benchmark.pdf"),
+         FIG_MAIN, "simulation_benchmark.pdf")
 copy_fig(file.path(state_dir, "figures", "fig_state_dependence_inversion.pdf"), FIG_MAIN)
 copy_fig(file.path(state_dir, "figures", "fig_state_dependence_curve.pdf"), FIG_MAIN)
 #  Perfect-foresight trajectory figure (Section 3.4): the SHOCKED PD level path

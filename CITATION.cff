@@ -25,6 +25,16 @@ authors:
     family-names: Pull
     affiliation: University of Orléans and Square Research Center
     orcid: 'https://orcid.org/0009-0003-4066-5066'
+contact:
+  - given-names: Christophe
+    family-names: Hurlin
+    affiliation: University of Orléans and Institut Universitaire de France
+    email: christophe.hurlin@univ-orleans.fr
+    orcid: 'https://orcid.org/0000-0002-6082-8251'
+  - given-names: Yoann
+    family-names: Pull
+    affiliation: University of Orléans and Square Research Center
+    orcid: 'https://orcid.org/0009-0003-4066-5066'
 repository-code: https://github.com/YoannPull/var-merton
 license: MIT
 keywords:

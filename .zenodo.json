@@ -47,5 +47,19 @@
       "relation": "isSupplementedBy",
       "scheme": "doi"
     }
+  ],
+  "contributors": [
+    {
+      "name": "Hurlin, Christophe",
+      "type": "ContactPerson",
+      "affiliation": "University of Orléans and Institut Universitaire de France",
+      "orcid": "0000-0002-6082-8251"
+    },
+    {
+      "name": "Pull, Yoann",
+      "type": "ContactPerson",
+      "affiliation": "University of Orléans and Square Research Center",
+      "orcid": "0009-0003-4066-5066"
+    }
   ]
 }

@@ -5,6 +5,10 @@ Replication code and data for the paper:
 > **Generalized Impulse Responses of Portfolio Default Probabilities:  
 > A Modular Framework with an Application to Geopolitical Risk** — G. Flament, C. Hurlin, Q. Lajaunie, Y. Pull.
 
+Working paper: [SSRN 7106918](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7106918)
+(doi:[10.2139/ssrn.7106918](https://doi.org/10.2139/ssrn.7106918)).
+
+
 The framework propagates an identified macro-financial innovation through a
 Bayesian VAR, maps it into a latent systematic credit factor via a satellite
 equation, and converts it into closed-form generalized impulse responses of the
@@ -177,6 +181,13 @@ replication convenience only, subject to those providers' terms of use. See
 
 ## Citation
 
-If you use this code, please cite the paper above. The Geopolitical Risk
-Index should be cited as Caldara, D. and M. Iacoviello (2022), "Measuring
-Geopolitical Risk," *American Economic Review*, 112(4), 1194-1225.
+If you use this code, please cite the paper:
+
+> Flament, G., C. Hurlin, Q. Lajaunie and Y. Pull, "Generalized Impulse
+> Responses of Portfolio Default Probabilities: A Modular Framework with an
+> Application to Geopolitical Risk." Available at SSRN:
+> <https://ssrn.com/abstract=7106918>, doi:10.2139/ssrn.7106918.
+
+The Geopolitical Risk Index should be cited as Caldara, D. and M. Iacoviello
+(2022), "Measuring Geopolitical Risk," *American Economic Review*, 112(4),
+1194-1225.

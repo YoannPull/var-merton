@@ -7,9 +7,10 @@ Replication code and data for the paper:
 
 The framework propagates an identified macro-financial innovation through a
 Bayesian VAR, maps it into a latent systematic credit factor via a satellite
-equation, and converts it into closed-form generalized impulse responses of
-mean and quantile portfolio default probabilities (Merton-Vasicek map). The
-application studies U.S. geopolitical-risk (GPR) shocks.
+equation, and converts it into closed-form generalized impulse responses of the
+mean, the quantiles (PD-at-Risk) and the expected shortfall of portfolio
+default probabilities (Merton-Vasicek map). The application studies U.S.
+geopolitical-risk (GPR) shocks.
 
 ## Requirements
 
@@ -38,12 +39,25 @@ runtime: several hours on a recent laptop; the heaviest steps are the
 information-set robustness grids and the per-window model averaging.
 
 After a run, a lightweight sanity check verifies that the expected
-deliverables exist with sane shapes (re-estimates nothing, exits non-zero on
-failure):
+deliverables exist with sane shapes — including that every figure name the
+LaTeX source includes is present in `output/paper_replication/figures/`. It
+re-estimates nothing and exits non-zero on failure:
 
 ```r
 Rscript tests/smoke_test.R
 ```
+
+A second, self-contained test checks the closed-form expected-shortfall
+response against numerical integration:
+
+```r
+Rscript tests/test_pd_es_closedform.R
+```
+
+The last pipeline step stops with an error if any paper deliverable is missing,
+rather than leaving a stale copy in place. To inspect a deliberately partial
+run, set `options(paper.strict_deliverables = FALSE)` before sourcing
+`code/shared/make_paper_outputs.R`.
 
 ## Paper deliverables
 
@@ -72,9 +86,10 @@ To compile the paper, copy `output/paper_replication/figures/` next to the
 | `code/shared/var_information_set_diagnostics.R` | BVAR stability diagnostics | stability table (appendix) |
 | `code/dralacbn/02_*.R` | baseline specification + information-set robustness | dynamic responses, satellite tables, appendix figures |
 | `code/dralacbn/03_*.R`, `code/dralacbn/04_*.R` | direct-channel / orthogonality test (relaxes `eta`$\perp$`u`) | control-function table, PD with/without direct channel, `lambda` posterior |
-| `code/dralacbn/07_*.R`, `code/dralacbn/09_*.R` | per-window BMA short-default-sample responses (**heavy step**) | shorter-default-histories figures (2005, 2015 windows) |
-| `code/dralacbn/08_dralacbn_perfect_foresight.R` | perfect-foresight bias | Section 3.4 |
+| `code/dralacbn/07_*.R`, `code/dralacbn/09_*.R` | per-window BMA short-default-sample responses (**heavy step**) | Section 3.4, shorter-default-histories figures (2005, 2015 windows) |
+| `code/dralacbn/08_dralacbn_perfect_foresight.R` | perfect-foresight bias | Section 3.5 |
 | `code/dralacbn/10_dralacbn_state_dependence.R` | historical episodes, state dependence | Section 3.3 |
+| `code/review/04_simulation_benchmark.R` | closed form vs forward Monte Carlo, at a fixed parameter vector | Section 2.5 benchmark figure |
 | `code/shared/variable_definitions.R` | variable glossary | documentation |
 | `code/shared/collate_paper_outputs.R` | collated outputs (`output/paper/`) | working copies |
 | `code/shared/make_paper_outputs.R` | `output/paper_replication/` | all paper figures/tables, paper-named |
@@ -86,7 +101,7 @@ source("run_all.R")
 ## Sample conventions and reproducibility
 
 The estimation sample ends at `DATA_END_DATE` (set in `config.R`, currently
-2024-12-31). The truncation is applied centrally in `02_build_dataset.R` and
+2024-12-31). The truncation is applied centrally in `code/02_build_dataset.R` and
 wherever default-rate series are loaded, so every block shares the same
 cutoff. **If you change `DATA_END_DATE`, delete `output/shared/var_kernels/`**
 so that the cached BVAR posterior kernels are re-estimated on the new sample.
@@ -122,9 +137,12 @@ Jones Indices' terms. It can otherwise be regenerated at run time by setting
 config.R                  all paths and parameters (single source of truth)
 run_all.R                 entry point: full pipeline
 dependencies.R            package list (informational; use renv.lock)
+R/functions.R             legacy helpers kept for reference (not on the
+                          pipeline path)
 code/
   00_setup.R              shared initialization (sourced by every script)
   01_*, 02_*              data construction
+  README.md               notes on the code layout
   shared/                 estimation engine, GIRF machinery, writers,
                           make_paper_outputs.R (paper deliverables)
   dralacbn/               baseline application (delinquency proxy):
@@ -132,10 +150,20 @@ code/
                           orthogonality test), 07+09 (per-window BMA
                           short-default-sample figures), 08 (perfect foresight),
                           10 (state dependence)
+  review/                 exercises written in response to referee points; 04
+                          (closed form vs forward simulation) is on the paper
+                          pipeline and produces the Section 2.5 figure. The
+                          others (z-factor normality, conditional normality,
+                          ECL illustration, calibration uncertainty) are
+                          diagnostics, run on demand, not part of run_all.R
+  plots_paper_descriptive.R  descriptive plots, run on demand
 data/raw/                 frozen input data (see MANIFEST.md)
 data/processed/           built datasets (regenerated by the pipeline)
 output/                   generated results (regenerated by the pipeline)
-tests/smoke_test.R        post-run sanity checks
+tests/
+  smoke_test.R            post-run sanity checks on the deliverables
+  test_pd_es_closedform.R closed-form expected shortfall vs numerical
+                          integration (self-contained)
 ```
 
 ## License

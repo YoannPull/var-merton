@@ -42,7 +42,6 @@
     {
       "identifier": "10.5281/zenodo.21796549",
       "relation": "isSupplementedBy",
-      "resource_type": "publication-supplementaryinformation",
       "scheme": "doi"
     }
   ]

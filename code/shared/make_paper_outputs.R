@@ -562,9 +562,26 @@ cat("Paper replication outputs in: ", REP_DIR, "\n\n", sep = "")
 n_ok <- sum(.status$status == "ok")
 print(.status, nrows = 100)
 cat("\n", n_ok, " / ", nrow(.status), " deliverables produced.\n", sep = "")
+
+#  A missing deliverable means the replication is incomplete: the file left in
+#  output/paper_replication/ is then a stale copy from an earlier run, which is
+#  exactly the failure mode a replication package must not hide. Fail loudly so
+#  that run_all.R marks the step KO. Set
+#      options(paper.strict_deliverables = FALSE)
+#  to downgrade this to a warning when re-running the script on its own after a
+#  deliberately partial pipeline.
 if (n_ok < nrow(.status)) {
-  cat("Missing items require the corresponding pipeline step to be re-run",
-      "(see PREREQUISITES in the header of this script).\n")
+  missing_items <- .status[["item"]][.status[["status"]] != "ok"]
+  msg <- paste0(
+    nrow(.status) - n_ok, " paper deliverable(s) missing:\n  - ",
+    paste(missing_items, collapse = "\n  - "),
+    "\nRe-run the corresponding pipeline step (see PREREQUISITES in the header)."
+  )
+  if (isTRUE(getOption("paper.strict_deliverables", TRUE))) {
+    stop(msg, call. = FALSE)
+  } else {
+    warning(msg, call. = FALSE)
+  }
 }
 
 invisible(TRUE)

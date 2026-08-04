@@ -75,6 +75,43 @@ for (app in names(apps)) {
   }
 }
 
+# -----------------------------------------------------------------------------
+#  Paper replication package: every figure the LaTeX source includes must be
+#  present, under the exact name the .tex references. This list mirrors the
+#  \includegraphics calls of the manuscript; keep the two in sync.
+# -----------------------------------------------------------------------------
+
+cat("== paper_replication figures (names referenced by the .tex) ==\n")
+
+REP_FIG <- file.path("output", "paper_replication", "figures")
+
+tex_figures <- c(
+  "main/graph_dralacbn.pdf",
+  "main/graph_e1.pdf",
+  "main/graph_gpr.pdf",
+  "main/graph_pd.pdf",
+  "main/graph_var_irf.pdf",
+  "main/pd_girf_window_2005_1sd.pdf",
+  "main/pd_girf_window_2015_1sd.pdf",
+  "main/pd_mean_vs_es_dralacbn_real_side_1sd.pdf",
+  "main/pd_mean_vs_var_dralacbn_real_side_1sd.pdf",
+  "main/simulation_benchmark.pdf",
+  "robustness/monetary/pd_girf_1sd.pdf",
+  "robustness/monetary/var_irf_1sd.pdf",
+  "robustness/real_side_light/pd_girf_1sd.pdf",
+  "robustness/real_side_light/var_irf_1sd.pdf",
+  "robustness/uncertainty/pd_girf_1sd.pdf",
+  "robustness/uncertainty/var_irf_1sd.pdf"
+)
+
+for (f in tex_figures) {
+  p <- file.path(REP_FIG, f)
+  chk(file.exists(p) && file.info(p)$size > 0, paste0("figure ", f))
+}
+
+chk(file.exists(file.path("output", "paper_replication", "paper_numbers.csv")),
+    "paper_numbers.csv exists")
+
 cat("\n", strrep("=", 50), "\n", sep = "")
 cat(sprintf("Smoke test: %d/%d checks passed, %d failed.\n",
             n_checks - n_fail, n_checks, n_fail))

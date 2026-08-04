@@ -8,7 +8,7 @@
 #
 #  Runs the full pipeline: data -> BVAR application + robustness -> direct-channel
 #  test -> short-default-sample -> perfect foresight -> state dependence ->
-#  paper deliverables.
+#  closed-form vs simulation benchmark -> paper deliverables.
 #
 #  Output layout:
 #    output/applications/dralacbn/main_specification/
@@ -54,8 +54,10 @@ cat("Session log written to: ", log_file, "\n\n", sep = "")
 
 #  Pipeline producing every figure, table and in-text number of the paper. It
 #  includes the direct-channel / orthogonality test (03 -> 04, which relaxes the
-#  satellite exclusion restriction and justifies the baseline closed form) and
-#  the per-window BMA short-default-sample figures (07 -> 09).
+#  satellite exclusion restriction and justifies the baseline closed form), the
+#  per-window BMA short-default-sample figures (07 -> 09) and the closed-form
+#  vs forward-simulation benchmark of Section 2.5 (code/review/04), which
+#  produces the figure copied into the paper deliverables.
 pipeline_steps <- data.frame(
   phase = c(
     "data",
@@ -68,6 +70,7 @@ pipeline_steps <- data.frame(
     "extension_short_sample",
     "extension_perfect_foresight",
     "extension_state_dependence",
+    "numerical_benchmark",
     "documentation",
     "paper_collation",
     "paper_replication"
@@ -83,6 +86,7 @@ pipeline_steps <- data.frame(
     "code/dralacbn/09_dralacbn_short_sample_single_figures.R",
     "code/dralacbn/08_dralacbn_perfect_foresight.R",
     "code/dralacbn/10_dralacbn_state_dependence.R",
+    "code/review/04_simulation_benchmark.R",
     "code/shared/variable_definitions.R",
     "code/shared/collate_paper_outputs.R",
     "code/shared/make_paper_outputs.R"

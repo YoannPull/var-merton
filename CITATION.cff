@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+title: >-
+  VAR-MERTON: replication package for "Generalized Impulse Responses of
+  Portfolio Default Probabilities: A Modular Framework with an Application to
+  Geopolitical Risk"
+message: >-
+  If you use this software, please cite both the software and the associated
+  paper.
+type: software
+authors:
+  - given-names: Guillaume
+    family-names: Flament
+    affiliation: Square Research Center
+  - given-names: Christophe
+    family-names: Hurlin
+    affiliation: University of Orléans and Institut Universitaire de France
+    email: christophe.hurlin@univ-orleans.fr
+  - given-names: Quentin
+    family-names: Lajaunie
+    affiliation: University of Orléans and Square Research Center
+  - given-names: Yoann
+    family-names: Pull
+    affiliation: University of Orléans and Square Research Center
+    orcid: 'https://orcid.org/0009-0003-4066-5066'
+repository-code: https://github.com/YoannPull/var-merton
+license: MIT
+keywords:
+  - generalized impulse responses
+  - probit models
+  - portfolio default probabilities
+  - Bayesian VAR
+  - credit stress testing
+  - geopolitical risk
+preferred-citation:
+  type: article
+  title: >-
+    Generalized Impulse Responses of Portfolio Default Probabilities: A Modular
+    Framework with an Application to Geopolitical Risk
+  authors:
+    - given-names: Guillaume
+      family-names: Flament
+    - given-names: Christophe
+      family-names: Hurlin
+    - given-names: Quentin
+      family-names: Lajaunie
+    - given-names: Yoann
+      family-names: Pull
+      orcid: 'https://orcid.org/0009-0003-4066-5066'
+  year: 2026
+  doi: 10.2139/ssrn.7106918
+  url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7106918

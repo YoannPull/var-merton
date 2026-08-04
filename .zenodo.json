@@ -1,20 +1,23 @@
 {
   "title": "VAR-MERTON: replication package for \"Generalized Impulse Responses of Portfolio Default Probabilities: A Modular Framework with an Application to Geopolitical Risk\"",
-  "description": "<p>Replication code and frozen input data for the paper <em>Generalized Impulse Responses of Portfolio Default Probabilities: A Modular Framework with an Application to Geopolitical Risk</em> (Flament, Hurlin, Lajaunie and Pull).</p><p>The framework propagates an identified macro-financial innovation through a Bayesian VAR, maps it into a latent systematic credit factor via a satellite equation, and converts it into closed-form generalized impulse responses of the mean, the quantiles (PD-at-Risk) and the expected shortfall of portfolio default probabilities under the Merton-Vasicek map of the Basel IRB framework. The application studies U.S. geopolitical-risk shocks.</p><p><code>run_all.R</code> is the single entry point and reproduces every figure, table and in-text number of the paper into <code>output/paper_replication/</code>. See README.md for requirements and the pipeline map.</p><p>The source code is released under the MIT License. The data files under <code>data/raw/</code> are <strong>not</strong> covered by that license: they remain the property of their respective providers (FRED, Caldara-Iacoviello, Baker-Bloom-Davis, CBOE, S&amp;P Dow Jones Indices) and are redistributed in frozen form for replication convenience only, subject to those providers' terms of use. See <code>data/raw/MANIFEST.md</code> for per-series provenance.</p>",
+  "description": "<p>Replication code and frozen input data for the paper <em>Generalized Impulse Responses of Portfolio Default Probabilities: A Modular Framework with an Application to Geopolitical Risk</em> (Flament, Hurlin, Lajaunie and Pull).</p><p>The framework propagates an identified macro-financial innovation through a Bayesian VAR, maps it into a latent systematic credit factor via a satellite equation, and converts it into closed-form generalized impulse responses of the mean, the quantiles (PD-at-Risk) and the expected shortfall of portfolio default probabilities under the Merton-Vasicek map of the Basel IRB framework. The application studies U.S. geopolitical-risk shocks.</p><p><code>run_all.R</code> is the single entry point and reproduces every figure, table and in-text number of the paper into <code>output/paper_replication/</code>. See README.md for requirements and the pipeline map.</p><p>The paper is available at SSRN: <a href=\"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7106918\">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7106918</a> (doi:<a href=\"https://doi.org/10.2139/ssrn.7106918\">10.2139/ssrn.7106918</a>).</p><p>The source code is released under the MIT License. The data files under <code>data/raw/</code> are <strong>not</strong> covered by that license: they remain the property of their respective providers (FRED, Caldara-Iacoviello, Baker-Bloom-Davis, CBOE, S&amp;P Dow Jones Indices) and are redistributed in frozen form for replication convenience only, subject to those providers' terms of use. See <code>data/raw/MANIFEST.md</code> for per-series provenance.</p>",
   "upload_type": "software",
   "license": "mit",
   "creators": [
     {
       "name": "Flament, Guillaume",
-      "affiliation": "Square Research Center"
+      "affiliation": "Square Research Center",
+      "orcid": "0000-0002-3313-3382"
     },
     {
       "name": "Hurlin, Christophe",
-      "affiliation": "University of Orléans and Institut Universitaire de France"
+      "affiliation": "University of Orléans and Institut Universitaire de France",
+      "orcid": "0000-0002-6082-8251"
     },
     {
       "name": "Lajaunie, Quentin",
-      "affiliation": "University of Orléans and Square Research Center"
+      "affiliation": "University of Orléans and Square Research Center",
+      "orcid": "0000-0001-7349-4513"
     },
     {
       "name": "Pull, Yoann",

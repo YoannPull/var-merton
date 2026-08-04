@@ -11,13 +11,16 @@ authors:
   - given-names: Guillaume
     family-names: Flament
     affiliation: Square Research Center
+    orcid: 'https://orcid.org/0000-0002-3313-3382'
   - given-names: Christophe
     family-names: Hurlin
     affiliation: University of Orléans and Institut Universitaire de France
     email: christophe.hurlin@univ-orleans.fr
+    orcid: 'https://orcid.org/0000-0002-6082-8251'
   - given-names: Quentin
     family-names: Lajaunie
     affiliation: University of Orléans and Square Research Center
+    orcid: 'https://orcid.org/0000-0001-7349-4513'
   - given-names: Yoann
     family-names: Pull
     affiliation: University of Orléans and Square Research Center
@@ -39,10 +42,13 @@ preferred-citation:
   authors:
     - given-names: Guillaume
       family-names: Flament
+      orcid: 'https://orcid.org/0000-0002-3313-3382'
     - given-names: Christophe
       family-names: Hurlin
+      orcid: 'https://orcid.org/0000-0002-6082-8251'
     - given-names: Quentin
       family-names: Lajaunie
+      orcid: 'https://orcid.org/0000-0001-7349-4513'
     - given-names: Yoann
       family-names: Pull
       orcid: 'https://orcid.org/0009-0003-4066-5066'
